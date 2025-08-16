@@ -1,6 +1,7 @@
 import win32helper
 import pyautogui
 import rapidocrhelper
+import time
 from loguru import logger
 from datetime import datetime
 
@@ -17,12 +18,32 @@ def StartGame():
     x,y=rapidocrhelper.GetPoint('开始游戏')#返回的是文字基于图片的相对坐标,还需要加上窗口坐标
     if(x>0 and y>0): 
         pyautogui.click(winX+x, winY+y)
-        return True
+    time.sleep(2)    
+    #win32helper.ShotAll(handle)
+    #x,y=rapidocrhelper.GetPoint('已激活技能')#返回的是文字基于图片的相对坐标,还需要加上窗口坐标
+    #if(x>0 and y>0): 
+    pyautogui.click(winX+200, winY+200)
+    return True    
 
 # 返回
 def Reback():
     win32helper.ShotAll(handle)
     x,y=rapidocrhelper.GetPoint('返回')#返回的是文字基于图片的相对坐标,还需要加上窗口坐标
+    if(x>0 and y>0): 
+        pyautogui.click(winX+x, winY+y)
+        return True
+    
+# 暂停按钮
+def Pause():   #point  37,82 /35 * 35    / 621   1203
+    #win32helper.ShotPause(handle)
+    #x,y=rapidocrhelper.GetPoint('11')#返回的是文字基于图片的相对坐标,还需要加上窗口坐标
+    #if(x>0 and y>0): 
+    pyautogui.click(winX+winWidth*0.08, winY+winHeight*0.033+70)
+    return True
+# 退出战斗
+def ExitFight():
+    win32helper.ShotAll(handle)
+    x,y=rapidocrhelper.GetPoint('退出')#返回的是文字基于图片的相对坐标,还需要加上窗口坐标
     if(x>0 and y>0): 
         pyautogui.click(winX+x, winY+y)
         return True

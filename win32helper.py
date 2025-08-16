@@ -46,6 +46,11 @@ def ShotElite(handle):
     screenshot = pyautogui.screenshot(region=(left+int(width/2)-70, int(top+height*0.65), 140, 100))
     screenshot.save(".\cache\shot.png")
 
+def ShotPause(handle):   #point  37,82 /35 * 35    / 621   1203
+    left, top, width, height = GetWin(handle)
+    screenshot = pyautogui.screenshot(region=(left + int(width*0.06), top+int(height*0.016) +70, int(width*0.055), int(height*0.03)))
+    screenshot.save(".\cache\shot.png")
+
 # # 创建一个位图DC，并将其与窗口DC相关联(我的win10截到的图片是全黑的，所以弃用)
 # def Shot(handle):
 #     hdc=GetDc(handle)
